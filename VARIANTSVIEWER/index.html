@@ -1,0 +1,104 @@
+<html>
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<style>
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .main{
+    min-width:1200px;
+  }
+  .head {
+    margin-top: 15px;
+    margin-left: 50px;
+  }
+  .handle a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .handle a:hover
+  {
+    color:#00A0C6;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .abstract p {
+    margin-left: 20px;
+    font-size: 1.1em;
+  }
+  .slides {
+    margin-left: 15px;
+    padding: 0;
+  }
+  .row{
+    margin-left: 10px;
+  }
+  .slide {
+    width: 680px;
+    height: 420px;
+  }
+  .note {
+    font-size: 1.2em;
+  }
+  .right {
+    margin-top: 15px;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    background-color: rgba(205,205,205,0.10);
+  }
+  .left {
+    padding: 0;
+  }
+  .round {
+    font-weight: bold;
+  }
+  .note hr {
+    margin-top: 2px;
+    margin-bottom: 5px;
+  }
+  .points {
+    font-size: small;
+    float: right;
+    margin-top: 5px;
+  }
+</style>
+<script>
+  $(document).ready(function() {
+    var notes = [
+      {"img":"variants-viewer.png","note":"Variants Viewer"}
+    ];
+    notes.forEach(function(slide,i) {
+      ++i;
+      var row = $('<div class="row"></div></br/>'),
+          left = $('<div class="left col-lg-7"></>').html('<img class="slide" src="img/' + slide.img + '" alt="slide' + i +'"/>'),
+          right = $('<div class="right col-lg-5"></>').html('<span class="note">' + slide.note + '</span>');
+      $(".slides").append(row);
+      row.append(left);
+      row.append(right);
+    });
+  });
+</script>
+<body>
+  <div class="main">
+    <div class="head container row">
+      <div class="handle col-md-3">
+        <h3><a href="http://www.twitter.com/larryhengl">@LarryHengl</a></h3>
+      </div>
+      <div class="abstract col-md-9">
+        <p> <b> Snaps of apps I built internally at Novartis for informatics research workflows. Scrubbed for our (in)sanity. </b></p>
+        <p>Goals: Variants Viewer is a BioMarin web app used for mining genomic mutations in rare diseases,
+          and calculating disease incidence estimates in geo-ethnic populations.</p>
+        <p>Notes: This app was built using React, React-Router, D3 for data viz, dc.js for Crossfilter facets, FixedDataTable,
+          Baobab for state tree management, jStat, Bootstrap/FontAwesome, Gulp + Babel for app builds, and various supporting js libs.</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="slides container"></div>
+  </div>
+</body>
+</html>
